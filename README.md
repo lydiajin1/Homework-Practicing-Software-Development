@@ -1,2 +1,2 @@
 # Homework-Practicing-Software-Development
-IGME 201 | Group Homework: Practicing Software Development | Lydia, Yuri, Blessing, Colin 
+IGME 201 | Group Homework: Practicing Software Development - Dictionary Phone Book| Lydia, Yuri, Blessing, Colin 
