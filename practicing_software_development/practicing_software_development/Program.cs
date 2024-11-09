@@ -4,7 +4,37 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+           
+        }
+
+        // add contact 
+        static void AddContact()
+        {
+
+        }
+
+        // delete contact 
+        static void DeleteContact()
+        {
+
+        }
+
+        // search for contact 
+        static void SearchContact()
+        {
+
+        }
+
+        // edit contact 
+        static void EditContact()
+        {
+
+        }
+
+        // view entire contact list 
+        static void ViewAllContact()
+        {
+
         }
     }
 }
