@@ -5,8 +5,8 @@ namespace practicing_software_development
     internal class Program
     {
 
-
-        public Contact[] phoneBook = [];
+        //IDK HOW TO MAKE THE CONTACT ARRAY
+        //public Contact[] phoneBook = [];
         static void Main(string[] args)
         {
             Input();
@@ -22,7 +22,7 @@ namespace practicing_software_development
             string phoneNumber = Console.ReadLine();
 
             Contact contact = new Contact(contactName, phoneNumber);
-            contact.PrintContactInfo();
+            //phoneBook[phoneBook.length - 1].PrintContactInfo();
 
             Console.WriteLine("New Contact Added: " + contact.name + " " + contact.formattedNumber + "\n");
 
@@ -32,25 +32,34 @@ namespace practicing_software_development
         // delete contact 
         static void DeleteContact()
         {
-
+            //Take name input
+            //Search for name in array
+            //Find index of said contact
+            //Remove from array
         }
 
         // search for contact 
         static void SearchContact()
         {
-
+            //Take name input
+            //Return list of contacts matching name input (maybe even search for contacts STARTING with the letters searched.)
+            //Ex. Search Jo and return contacts named John, Johny, Johnny, Joe
         }
 
         // edit contact 
         static void EditContact()
         {
-
+            //Take name input
+            //Search for name in array
+            //Select specific one by phone number
+            //Find index of said contact
+            //Edit the array
         }
 
         // view entire contact list 
         static void ViewAllContacts()
         {
-
+            //Return full array of Name: Number
         }
 
         static void Input()
