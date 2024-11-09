@@ -9,25 +9,7 @@ namespace practicing_software_development
         public Contact[] phoneBook = [];
         static void Main(string[] args)
         {
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine("The options are: \n- Add a contact\n- Remove a contact\n- Edit a contact\n- Search for a contact\n- View all contacts");
-            switch (Console.ReadLine()) {
-                case ("Add a contact"):
-                    AddContact();
-                    break;
-                case ("Remove a contact"):
-                    DeleteContact();
-                    break;
-                case ("Edit a contact"):
-                    EditContact();
-                    break;
-                case ("View all contacts"):
-                    ViewAllContacts();
-                    break;
-                case ("Search for a contact"):
-                    SearchContact();
-                    break;
-            }
+            Input();
         }
 
         // add contact 
@@ -41,7 +23,10 @@ namespace practicing_software_development
 
             Contact contact = new Contact(contactName, phoneNumber);
             contact.PrintContactInfo();
-            
+
+            Console.WriteLine("New Contact Added: " + contact.name + " " + contact.formattedNumber + "\n");
+
+            Input();
         }
 
         // delete contact 
@@ -66,6 +51,30 @@ namespace practicing_software_development
         static void ViewAllContacts()
         {
 
+        }
+
+        static void Input()
+        {
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("The options are: \n- Add a contact\n- Remove a contact\n- Edit a contact\n- Search for a contact\n- View all contacts");
+            switch (Console.ReadLine())
+            {
+                case ("Add a contact"):
+                    AddContact();
+                    break;
+                case ("Remove a contact"):
+                    DeleteContact();
+                    break;
+                case ("Edit a contact"):
+                    EditContact();
+                    break;
+                case ("View all contacts"):
+                    ViewAllContacts();
+                    break;
+                case ("Search for a contact"):
+                    SearchContact();
+                    break;
+            }
         }
     }
 }
