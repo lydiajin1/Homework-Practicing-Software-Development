@@ -6,7 +6,8 @@ namespace practicing_software_development
     {
 
         //IDK HOW TO MAKE THE CONTACT ARRAY
-        //public Contact[] phoneBook = [];
+        public static Contact[] phoneBook = new Contact[0];
+
         static void Main(string[] args)
         {
             Input();
