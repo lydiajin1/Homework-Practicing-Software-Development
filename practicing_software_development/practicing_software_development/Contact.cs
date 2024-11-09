@@ -9,6 +9,7 @@ namespace practicing_software_development
 {
     internal struct Contact
     {
+        //Variables for contact
         public string name;
         public string number;
         public string formattedNumber;
@@ -27,19 +28,17 @@ namespace practicing_software_development
             Console.WriteLine(this.contactInfo);
         }
 
+        //Formats the number into proper U.S. phone number formatting.
         public static string FormatPhoneNumber(string number)
         {
+            if (number.Length < 10 || number.Length > 10) 
+            {
+                Console.WriteLine("Improper phone number length for formatting..");
+            }
             Regex regex = new Regex(@"[^\d]");
             number = regex.Replace(number, "");
             number = Regex.Replace(number, @"(\d{3})(\d{3})(\d{4})", "($1) $2-$3");
             return number;
-        }
-
-        private void Reset()
-        {
-            this.name = "Not Assigned";
-            this.number = "0000000000";
-            this.formattedNumber = FormatPhoneNumber(this.number);
         }
     }
 }
