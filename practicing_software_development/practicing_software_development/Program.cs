@@ -1,12 +1,20 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
+/**
+ * Division of roles: 
+ * Yuri: made the struct, the input, and collaborated on add contact
+ * Lydia: Worked on the add contact, delete contact, and view all contact parts
+ * Colin: 
+ * Blessing: 
+ * 
+ */
+
 namespace practicing_software_development
 {
     internal class Program
     {
 
-        //IDK HOW TO MAKE THE CONTACT ARRAY
-        public static Contact[] phoneBook = new Contact[0];
+        public static List<Contact> phoneBook = new List<Contact>();
 
         static void Main(string[] args)
         {
@@ -16,14 +24,16 @@ namespace practicing_software_development
         // add contact 
         static void AddContact()
         {
+            // takes in contact name and phone number 
             Console.WriteLine("Enter contact name: ");
             string contactName = Console.ReadLine();
 
             Console.WriteLine("Enter phone number: ");
             string phoneNumber = Console.ReadLine();
 
+            // creates the new contact and addds it to the phone book 
             Contact contact = new Contact(contactName, phoneNumber);
-            //phoneBook[phoneBook.length - 1].PrintContactInfo();
+            phoneBook.Add(contact);
 
             Console.WriteLine("New Contact Added: " + contact.name + " " + contact.formattedNumber + "\n");
 
@@ -33,13 +43,23 @@ namespace practicing_software_development
         // delete contact 
         static void DeleteContact()
         {
-            //Take name input
-            //Search for name in array
-            //Find index of said contact
-            //Remove from array
+            //Take the name of contact to delete 
+            Console.WriteLine("Enter contact name to delete: ");
+            string nameToDelete = Console.ReadLine();
+
+            // look for contact name in the array and its index 
+            for (int i = 0; i < phoneBook.Count; i++)
+            {
+                if (phoneBook[i].name == nameToDelete)
+                {
+                    phoneBook.RemoveAt(i);
+                }
+            }
+
+            Input();
         }
 
-        // search for contact 
+        // search for contact - someone work on this
         static void SearchContact()
         {
             //Take name input
@@ -47,7 +67,7 @@ namespace practicing_software_development
             //Ex. Search Jo and return contacts named John, Johny, Johnny, Joe
         }
 
-        // edit contact 
+        // edit contact - another person work on this
         static void EditContact()
         {
             //Take name input
@@ -61,6 +81,12 @@ namespace practicing_software_development
         static void ViewAllContacts()
         {
             //Return full array of Name: Number
+            foreach (Contact contact in phoneBook)
+            {
+                Console.WriteLine(contact.name + ": " + contact.formattedNumber);
+            }
+            
+            Input();
         }
 
         static void Input()
