@@ -15,7 +15,11 @@ namespace practicing_software_development
         // add contact 
         static void AddContact()
         {
-            
+            Console.WriteLine("Enter contact name: ");
+            string contactName = Console.ReadLine();
+
+            Console.WriteLine("Enter phone number: ");
+            string phoneNumber = Console.ReadLine();
         }
 
         // delete contact 
