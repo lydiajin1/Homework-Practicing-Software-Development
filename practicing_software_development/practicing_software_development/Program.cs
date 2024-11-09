@@ -5,11 +5,29 @@ namespace practicing_software_development
     internal class Program
     {
 
-        public string[] phoneBook = [];
 
+        public Contact[] phoneBook = [];
         static void Main(string[] args)
         {
-           
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("The options are: \n- Add a contact\n- Remove a contact\n- Edit a contact\n- Search for a contact\n- View all contacts");
+            switch (Console.ReadLine()) {
+                case ("Add a contact"):
+                    AddContact();
+                    break;
+                case ("Remove a contact"):
+                    DeleteContact();
+                    break;
+                case ("Edit a contact"):
+                    EditContact();
+                    break;
+                case ("View all contacts"):
+                    ViewAllContacts();
+                    break;
+                case ("Search for a contact"):
+                    SearchContact();
+                    break;
+            }
         }
 
         // add contact 
@@ -20,6 +38,10 @@ namespace practicing_software_development
 
             Console.WriteLine("Enter phone number: ");
             string phoneNumber = Console.ReadLine();
+
+            Contact contact = new Contact(contactName, phoneNumber);
+            contact.PrintContactInfo();
+            
         }
 
         // delete contact 
@@ -41,7 +63,7 @@ namespace practicing_software_development
         }
 
         // view entire contact list 
-        static void ViewAllContact()
+        static void ViewAllContacts()
         {
 
         }
