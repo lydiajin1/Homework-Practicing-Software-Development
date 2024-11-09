@@ -65,16 +65,26 @@ namespace practicing_software_development
             //Take name input
             //Return list of contacts matching name input (maybe even search for contacts STARTING with the letters searched.)
             //Ex. Search Jo and return contacts named John, Johny, Johnny, Joe
+
+
+
+
+            Input();
         }
 
         // edit contact - another person work on this
         static void EditContact()
         {
             //Take name input
-            //Search for name in array
+            //Search for name in list
             //Select specific one by phone number
             //Find index of said contact
-            //Edit the array
+            //Edit the list
+
+
+
+
+            Input() ;
         }
 
         // view entire contact list 
@@ -91,23 +101,26 @@ namespace practicing_software_development
 
         static void Input()
         {
+
+            //Allows for user inputs on what they want to do.
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("The options are: \n- Add a contact\n- Remove a contact\n- Edit a contact\n- Search for a contact\n- View all contacts");
-            switch (Console.ReadLine())
+            //Check all inputs, not case sensitive.
+            switch (Console.ReadLine().ToLower())
             {
-                case ("Add a contact"):
+                case ("add a contact"):
                     AddContact();
                     break;
-                case ("Remove a contact"):
+                case ("remove a contact"):
                     DeleteContact();
                     break;
-                case ("Edit a contact"):
+                case ("edit a contact"):
                     EditContact();
                     break;
-                case ("View all contacts"):
+                case ("view all contacts"):
                     ViewAllContacts();
                     break;
-                case ("Search for a contact"):
+                case ("search for a contact"):
                     SearchContact();
                     break;
             }
