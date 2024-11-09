@@ -13,9 +13,9 @@ namespace practicing_software_development
         }
 
         // add contact 
-        static void AddContact(string name, string number)
+        static void AddContact()
         {
-            Contact contact = new Contact();
+            
         }
 
         // delete contact 
