@@ -4,7 +4,7 @@
  * Division of roles: 
  * Yuri: made the struct, the input, and collaborated on add contact
  * Lydia: Worked on the add contact, delete contact, and view all contact parts
- * Colin: 
+ * Colin: worked on search contact
  * Blessing: 
  * 
  */
@@ -62,10 +62,25 @@ namespace practicing_software_development
         // search for contact - someone work on this
         static void SearchContact()
         {
-            //Take name input
-            //Return list of contacts matching name input (maybe even search for contacts STARTING with the letters searched.)
+           
             //Ex. Search Jo and return contacts named John, Johny, Johnny, Joe
 
+
+
+
+            //Take name input
+            Console.WriteLine("Enter name that you would like to search for: ");
+            string nameToSearchFor= Console.ReadLine();
+
+
+            //Return list of contacts matching name input (maybe even search for contacts STARTING with the letters searched.)
+            for (int i = 0; i < phoneBook.Count; i++) { 
+            
+                    if(phoneBook[i].name == nameToSearchFor)
+                {
+                    
+                }
+            }
 
 
 
