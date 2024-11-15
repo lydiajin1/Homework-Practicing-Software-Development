@@ -78,7 +78,7 @@ namespace practicing_software_development
             
                     if(phoneBook[i].name == nameToSearchFor)
                 {
-                    
+                    Console.WriteLine(phoneBook[i].name +   phoneBook[i].formattedNumber);
                 }
             }
 
