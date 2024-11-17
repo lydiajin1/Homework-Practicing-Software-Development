@@ -2,7 +2,7 @@
 
 /**
  * Division of roles: 
- * Yuri: made the struct, the input, and collaborated on add contact
+ * Yuri: made the struct, the input, and collaborated on add contact. Added fixes to functions such as making case insensitive. Created base of edit contact for Blessing, as it is the most complex function of the bunch..
  * Lydia: Worked on the add contact, delete contact, and view all contact parts
  * Colin: worked on search contact
  * Blessing: 
@@ -15,9 +15,12 @@ namespace practicing_software_development
     {
 
         public static List<Contact> phoneBook = new List<Contact>();
+        //Note we should have probably used a dictionary but too late now haha
 
         static void Main(string[] args)
         {
+            //Asks what user would like to do when the program loads.
+                // Input is also at the end of every function in order to continue the program input
             Input();
         }
 
@@ -67,16 +70,15 @@ namespace practicing_software_development
 
 
 
-
             //Take name input
             Console.WriteLine("Enter name that you would like to search for: ");
-            string nameToSearchFor= Console.ReadLine();
+            string nameToSearchFor= Console.ReadLine().ToLower();
 
 
             //Return list of contacts matching name input (maybe even search for contacts STARTING with the letters searched.)
             for (int i = 0; i < phoneBook.Count; i++) { 
             
-                    if(phoneBook[i].name == nameToSearchFor)
+                    if(phoneBook[i].name.ToLower() == nameToSearchFor)
                 {
                     Console.WriteLine(phoneBook[i].name +   phoneBook[i].formattedNumber);
                 }
@@ -96,10 +98,43 @@ namespace practicing_software_development
             //Find index of said contact
             //Edit the list
 
+            Console.WriteLine("Enter name that you would like to edit: ");
+            string nameToSearchFor = Console.ReadLine().ToLower();
+            List<Contact> searchResults = new List<Contact>();
+
+            //Return list of contacts matching name input (maybe even search for contacts STARTING with the letters searched.)
+            for (int i = 0; i < phoneBook.Count; i++)
+            {
+
+                if (phoneBook[i].name.ToLower() == nameToSearchFor)
+                {
+                    searchResults.Add(phoneBook[i]);
+                }
+            }
+
+            if (phoneBook.Count == 0)
+            {
+                Console.WriteLine("No contact found.");
+            }
+            else if (phoneBook.Count == 1) 
+            {
+                Console.WriteLine($"Editing {searchResults[0].name}");
+                //For Blessing -> edit the name and number of this contact in the phonebook list
+            }
+            else
+            {
+                for (int i = 0; i < searchResults.Count; i++)
+                {
+                    Console.WriteLine(searchResults[i].name + searchResults[i].formattedNumber);
+                }
+                //For blessing -> List the searchResults list and make a way to select which one to edit, and then edit it.
+                //(in case for example there are multiple contacts with the same name)
+                // I think you can do this by either assigning each duplicate a number, or selecting again by phone number.
+            }
 
 
 
-            Input() ;
+            Input();
         }
 
         // view entire contact list 
@@ -118,7 +153,7 @@ namespace practicing_software_development
         {
 
             //Allows for user inputs on what they want to do.
-            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("\nWhat would you like to do?");
             Console.WriteLine("The options are: \n- Add a contact\n- Remove a contact\n- Edit a contact\n- Search for a contact\n- View all contacts");
             //Check all inputs, not case sensitive.
             switch (Console.ReadLine().ToLower())
