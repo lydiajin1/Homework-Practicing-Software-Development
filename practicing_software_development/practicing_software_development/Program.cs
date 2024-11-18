@@ -48,12 +48,12 @@ namespace practicing_software_development
         {
             //Take the name of contact to delete 
             Console.WriteLine("Enter contact name to delete: ");
-            string nameToDelete = Console.ReadLine();
+            string nameToDelete = Console.ReadLine().ToLower();
 
             // look for contact name in the array and its index 
             for (int i = 0; i < phoneBook.Count; i++)
             {
-                if (phoneBook[i].name == nameToDelete)
+                if (phoneBook[i].name.ToLower() == nameToDelete)
                 {
                     phoneBook.RemoveAt(i);
                 }
@@ -118,20 +118,27 @@ namespace practicing_software_development
             }
             else if (phoneBook.Count == 1) 
             {
-                Console.WriteLine($"Editing {searchResults[0].name}" - {searchResults[0].formattedNumber}");
+                Console.WriteLine($"Editing {searchResults[0].name} - {searchResults[0].formattedNumber}");
                 //For Blessing -> edit the name and number of this contact in the phonebook list
-                Console.Write("Enter new name: ");
-                searchResults[0].name = Console.ReadLine();
-                Console.Write("Enter new phone number: ");
-                searchResults[0].formattedNumber = Console.ReadLine();
-                Console.WriteLine("Contact updated successfully!");
+                for (int i = 0; i < phoneBook.Count; i++)
+                {
+                    if (searchResults[0].name == phoneBook[i].name)
+                    {
+                        Console.Write("Enter new name: ");
+                        string newName = Console.ReadLine();
+                        Console.Write("Enter new phone number: ");
+                        string newNumber = Console.ReadLine();
+                        phoneBook[i] = new Contact(newName, newNumber);
+                        Console.WriteLine("Contact updated successfully!");
+                    }
+                }
             }
             else
             {
                 Console.WriteLine("Multiple contacts found:");
                 for (int i = 0; i < searchResults.Count; i++)
                 {
-                    Console.WriteLine($"{i +1}: {searchResults[i].name + searchResults[i]name} -{searchResults[i].formattedNumber}");
+                    Console.WriteLine($"{i +1}: {searchResults[i].name} - {searchResults[i].formattedNumber}");
                 }
                 //For blessing -> List the searchResults list and make a way to select which one to edit, and then edit it.
                 //(in case for example there are multiple contacts with the same name)
@@ -145,15 +152,19 @@ namespace practicing_software_development
 
                  Contact selectedContact = searchResults[selectedIndex - 1];
                  Console.WriteLine($"Editing {selectedContact.name} - {selectedContact.formattedNumber}");
-                 Console.Write("Enter new name: ");
-                 selectedContact.name = Console.ReadLine();
-                 Console.Write("Enter new phone number: ");
-                 selectedContact.formattedNumber = Console.ReadLine();
-                 Console.WriteLine("Contact updated successfully!");
+                for (int i = 0; i < phoneBook.Count; i++)
+                {
+                    if (selectedContact.number == phoneBook[i].number)
+                    {
+                        Console.Write("Enter new name: ");
+                        string newName = Console.ReadLine();
+                        Console.Write("Enter new phone number: ");
+                        string newNumber = Console.ReadLine();
+                        phoneBook[i] = new Contact(newName, newNumber);
+                        Console.WriteLine("Contact updated successfully!");
+                    }
                 }
-               }
-
-
+            }
 
             Input();
         }
