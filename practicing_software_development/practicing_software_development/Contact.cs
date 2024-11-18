@@ -40,5 +40,25 @@ namespace practicing_software_development
             number = Regex.Replace(number, @"(\d{3})(\d{3})(\d{4})", "($1) $2-$3");
             return number;
         }
+
+        public Contact EditContact(string newName = null, string newNumber = null)
+        {
+            string updatedName = this.name;  
+            string updatedNumber = this.number;  
+
+            if (newName != null)
+            {
+               updatedName = newName;
+            }
+
+            if (newNumber != null)
+            {
+              updatedNumber = newNumber;
+            }
+
+             return new Contact(updatedName, updatedNumber);
+        }
+
+
     }
 }
