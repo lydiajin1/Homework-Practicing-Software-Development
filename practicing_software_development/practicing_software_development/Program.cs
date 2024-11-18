@@ -118,19 +118,40 @@ namespace practicing_software_development
             }
             else if (phoneBook.Count == 1) 
             {
-                Console.WriteLine($"Editing {searchResults[0].name}");
+                Console.WriteLine($"Editing {searchResults[0].name}" - {searchResults[0].formattedNumber}");
                 //For Blessing -> edit the name and number of this contact in the phonebook list
+                Console.Write("Enter new name: ");
+                searchResults[0].name = Console.ReadLine();
+                Console.Write("Enter new phone number: ");
+                searchResults[0].formattedNumber = Console.ReadLine();
+                Console.WriteLine("Contact updated successfully!");
             }
             else
             {
+                Console.WriteLine("Multiple contacts found:");
                 for (int i = 0; i < searchResults.Count; i++)
                 {
-                    Console.WriteLine(searchResults[i].name + searchResults[i].formattedNumber);
+                    Console.WriteLine($"{i +1}: {searchResults[i].name + searchResults[i]name} -{searchResults[i].formattedNumber}");
                 }
                 //For blessing -> List the searchResults list and make a way to select which one to edit, and then edit it.
                 //(in case for example there are multiple contacts with the same name)
                 // I think you can do this by either assigning each duplicate a number, or selecting again by phone number.
-            }
+                 Console.Write("Select the contact number you wish to edit: ");
+                 int selectedIndex;
+                 while (!int.TryParse(Console.ReadLine(), out selectedIndex) || selectedIndex < 1 || selectedIndex > searchResults.Count)
+                 {
+                    Console.Write("Invalid selection. Please enter a valid contact number: ");
+                 }
+
+                 Contact selectedContact = searchResults[selectedIndex - 1];
+                 Console.WriteLine($"Editing {selectedContact.name} - {selectedContact.formattedNumber}");
+                 Console.Write("Enter new name: ");
+                 selectedContact.name = Console.ReadLine();
+                 Console.Write("Enter new phone number: ");
+                 selectedContact.formattedNumber = Console.ReadLine();
+                 Console.WriteLine("Contact updated successfully!");
+                }
+               }
 
 
 
