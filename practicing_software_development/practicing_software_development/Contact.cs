@@ -41,24 +41,7 @@ namespace practicing_software_development
             return number;
         }
 
-        public Contact EditContact(string newName = null, string newNumber = null)
-        {
-            string updatedName = this.name;  
-            string updatedNumber = this.number;  
-
-            if (newName != null)
-            {
-               updatedName = newName;
-            }
-
-            if (newNumber != null)
-            {
-              updatedNumber = newNumber;
-            }
-
-             return new Contact(updatedName, updatedNumber);
-        }
-
+   
 
     }
 }
