@@ -5,7 +5,7 @@
  * Yuri: made the struct, the input, and collaborated on add contact. Added fixes to functions such as making case insensitive. Created base of edit contact for Blessing, as it is the most complex function of the bunch..
  * Lydia: Worked on the add contact, delete contact, and view all contact parts
  * Colin: worked on search contact
- * Blessing: 
+ * Blessing: worked on the edit contact 
  * 
  */
 
@@ -68,12 +68,9 @@ namespace practicing_software_development
            
             //Ex. Search Jo and return contacts named John, Johny, Johnny, Joe
 
-
-
             //Take name input
             Console.WriteLine("Enter name that you would like to search for: ");
             string nameToSearchFor= Console.ReadLine().ToLower();
-
 
             //Return list of contacts matching name input (maybe even search for contacts STARTING with the letters searched.)
             for (int i = 0; i < phoneBook.Count; i++) { 
@@ -83,7 +80,6 @@ namespace practicing_software_development
                     Console.WriteLine(phoneBook[i].name +   phoneBook[i].formattedNumber);
                 }
             }
-
 
 
             Input();
